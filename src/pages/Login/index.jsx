@@ -30,13 +30,13 @@ const Login = () => {
 
         if (username === "admin@bukapedia.com" && password === "admin123") {
             const auth = {
-                token: "tokenadmin",
+                token: "admin",
                 roles: "admin"
             }
             localStorage.setItem("auth", JSON.stringify(auth));
             navigate("/admin");
             Swal.fire({
-                title: "Login Success",
+                title: "Success",
                 icon: "success"
             })
         } else {
@@ -49,14 +49,14 @@ const Login = () => {
                     localStorage.setItem("auth", JSON.stringify(auth));
                     navigate("/");
                     Swal.fire({
-                        title: "Login Success",
+                        title: "Success",
                         icon: "success"
                     })
                 })
                 .catch(err => {
                     Swal.fire({
                         title: "Login Error",
-                        text: "Username/Password wrong or something wrong",
+                        text: "Wrong credentials",
                         icon: "error"
                     })
                 })
