@@ -2,7 +2,9 @@ import React from 'react'
 
 const homePageAdmin = () => {
   return (
-    <div>homePageAdmin</div>
+    <div>
+      <p>halaman admin oo</p>
+    </div>
   )
 }
 
