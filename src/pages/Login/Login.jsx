@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { Button, Form } from "react-bootstrap";
 import { auth } from "../../api";
 import styles from "./style.module.css";
-import Header from "../../components/Header";
 import SectionHeader from "../../components/SectionHeader";
 
 const Login = () => {
@@ -67,7 +66,6 @@ const Login = () => {
 
     return (
         <>
-            <Header />
             <SectionHeader title="Login" />
             <Form style={{ width: "80%", margin: "2.5rem auto" }} onSubmit={handleLogin}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -90,7 +88,7 @@ const Login = () => {
                         required
                     />
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button onClick={handleLogin} variant="primary" type="submit">
                     Login
                 </Button>
                 <div className={styles.default}>

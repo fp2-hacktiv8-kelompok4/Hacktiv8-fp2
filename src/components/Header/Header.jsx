@@ -19,7 +19,7 @@ const Header = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 localStorage.removeItem("auth");
-                navigate("/login");
+                navigate("/");
                 Swal.fire({
                     title: "Logout Success",
                     icon: "success"
@@ -33,10 +33,9 @@ const Header = () => {
             <Container>
                 <Navbar.Brand
                     as={Link}
-                    to="/"
+                    to={auth ? auth.roles === "user" ? "/" : "/admin" : "/"}
                     style={{ display: "flex", alignItems: "center" }}
                 >
-        
                     Bukapedia
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
@@ -57,7 +56,7 @@ const Header = () => {
                                 auth.roles === "user" ?
                                     <Nav.Link as={Link} to="/cart">Cart</Nav.Link>
                                     :
-                                    <Nav.Link as={Link} to="/rekap-penjualan">Rekap Penjualan</Nav.Link>
+                                    <Nav.Link as={Link} to="/admin/rekap">Rekap Penjualan</Nav.Link>
                                 :
                                 <Nav.Link as={Link} to="/login">Login</Nav.Link>
                         }
