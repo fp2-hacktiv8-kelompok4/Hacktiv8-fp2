@@ -1,10 +1,17 @@
-import React from 'react'
+import React, {Fragment} from 'react'
+import Footer from '../components/Footer'
+import Header from '../components/Header/Header'
+import Navbar from '../components/Header/Navbar'
 
 const homePage = () => {
   return (
-    <div>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae tempore iusto placeat sequi. Laudantium velit ullam tempore ea consequuntur dolorem dolores fugiat illum libero sequi. Culpa dignissimos repudiandae sint alias!</p>
-    </div>
+    <Fragment> 
+      <Navbar />
+      <div className='flex justify-center items-center min-h-screen bg-slate-200'>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab voluptatem ea debitis facere laborum quo nostrum repellendus rem tempore harum, sit fugiat quidem repellat quaerat velit magni veniam, incidunt repudiandae! lolololo</p>
+      </div>
+      <Footer />
+    </Fragment>
   )
 }
 
