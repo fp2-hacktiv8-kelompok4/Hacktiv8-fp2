@@ -4,7 +4,6 @@ import { Routes, Route} from 'react-router-dom'
 
 import homePage from './pages/homePage'
 import Header from './components/Header/Header'
-import './App.css'
 import cart from './pages/cart'
 import homePageAdmin from './pages/admin/homePageAdmin'
 import rekapPenjualan from './pages/admin/rekapPenjualan'
@@ -15,6 +14,7 @@ function App() {
     <>
       <div>
       <Header />
+      <div className='flex flex-col justify-center items-center min-h-screen '>
         <Routes>
            <Route path='/' Component={homePage} />
            <Route path='/login' Component={Login}  />
@@ -22,6 +22,7 @@ function App() {
            <Route path='/admin' Component={homePageAdmin}  />
            <Route path='/admin/rekap' Component={rekapPenjualan}  />
         </Routes>
+        </div>
       <Footer/>
       </div>
     </>

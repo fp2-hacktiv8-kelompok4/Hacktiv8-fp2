@@ -29,23 +29,23 @@ const Header = () => {
     };
 
     return (
-        <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
-            <Container>
+        <Navbar className=" bg-slate-200 h-full">
+            <Container className="flex mx-5 items-center justify-center py-5 ">
                 <Navbar.Brand
                     as={Link}
                     to={auth ? auth.roles === "user" ? "/" : "/admin" : "/"}
-                    style={{ display: "flex", alignItems: "center" }}
+                    className="flex w-full justify-between items-center text-2xl font-bold"    
                 >
                     Bukapedia
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
-                        className="me-auto my-2 my-lg-0"
-                        style={{ maxHeight: "100px" }}
+                        className="flex mx-2 my-2 my-lg-0 items-center justify-center" 
                         navbarScroll
                     >
                         <Nav.Link
+                            className="mx-2 text-lg font-semibold text-blue-600 hover:text-blue-900"
                             as={Link}
                             to={auth ? auth.roles === "user" ? "/" : "/admin" : "/"}
                         >
@@ -54,14 +54,14 @@ const Header = () => {
                         {
                             auth ?
                                 auth.roles === "user" ?
-                                    <Nav.Link as={Link} to="/cart">Cart</Nav.Link>
+                                    <Nav.Link className="mx-2 text-lg font-semibold text-blue-600 hover:text-blue-900" as={Link} to="/cart">Cart</Nav.Link>
                                     :
-                                    <Nav.Link as={Link} to="/admin/rekap">Rekap Penjualan</Nav.Link>
+                                    <Nav.Link className="mx-2 text-lg font-semibold text-blue-600 hover:text-blue-900" as={Link} to="/admin/rekap">Rekap Penjualan</Nav.Link>
                                 :
-                                <Nav.Link as={Link} to="/login">Login</Nav.Link>
+                                <Nav.Link className="text-lg font-semibold text-blue-600 hover:text-blue-900" as={Link} to="/login">Login</Nav.Link>
                         }
                         {
-                            auth ? <Nav.Link onClick={handleLogout}>Logout</Nav.Link> : <></>
+                            auth ? <Nav.Link className="mx-2 text-lg font-semibold text-red-600 hover:text-red-900" onClick={handleLogout}>Logout</Nav.Link> : <></>
                         }
                     </Nav>
                 </Navbar.Collapse>

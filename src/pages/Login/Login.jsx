@@ -66,11 +66,15 @@ const Login = () => {
 
     return (
         <>
+        <div className="flex flex-wrap justify-center items-center  min-h-screen w-full" >
+            <div className=" w-full justify-center items-center max-w-xs">
             <SectionHeader title="Login" />
-            <Form style={{ width: "80%", margin: "2.5rem auto" }} onSubmit={handleLogin}>
+            <p className="font-medium text-slate-400">Selamat Datang, tolong masukkan data anda</p>
+            <Form onSubmit={handleLogin}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Username</Form.Label>
-                    <Form.Control
+                    <Form.Label className="block text-slate-700 text-sm font-bold mb-2">Username</Form.Label>
+                    <Form.Control 
+                        className="text-sm border rounded w-full py-2 px-3 text-slate-700 placeholder:opacity-50"
                         type="text"
                         placeholder="Type your username..."
                         value={username}
@@ -79,8 +83,9 @@ const Login = () => {
                     />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control
+                    <Form.Label className="block text-slate-700 text-sm font-bold mb-2">Password</Form.Label>
+                    <Form.Control 
+                        className="text-sm border rounded w-full py-2 px-3 text-slate-700 placeholder:opacity-50"
                         type="password"
                         placeholder="Type your password..."
                         value={password}
@@ -88,22 +93,26 @@ const Login = () => {
                         required
                     />
                 </Form.Group>
-                <Button onClick={handleLogin} variant="primary" type="submit">
+                <button className="h-10 px-6 font-semibold rounded-md bg-blue-600 hover:bg-blue-800  text-white w-full" onClick={handleLogin} variant="primary" type="submit">
                     Login
-                </Button>
-                <div className={styles.default}>
-                    <div>
-                        <span>Default User:</span>
-                        <span>username = jimmie_k</span>
+                </button>
+            </Form>
+            <div className="flex flex-col justify-end w-full">
+                    <div className="py-3">
+                        <span>Default User : </span> <br />
+                        <span>username = <b> jimmie_k </b></span> <br />
                         <span>password = klein*#%*</span>
+                        
                     </div>
                     <div>
-                        <span>Default Admin:</span>
-                        <span>username = admin@bukapedia.com</span>
+                        <span>Default Admin:</span> <br />
+                        <span>username = <b>admin@bukapedia.com </b> </span> <br />
                         <span>password = admin123</span>
                     </div>
                 </div>
-            </Form>
+            </div>
+            
+        </div>
         </>
     );
 };
