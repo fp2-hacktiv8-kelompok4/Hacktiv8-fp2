@@ -19,7 +19,7 @@ const Navbar = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 localStorage.removeItem("auth");
-                navigate("/login");
+                navigate("/");
                 Swal.fire({
                     title: "Logout Success",
                     icon: "success"

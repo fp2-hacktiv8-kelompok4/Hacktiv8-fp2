@@ -6,6 +6,7 @@ import cart from './pages/cart'
 import homePageAdmin from './pages/admin/homePageAdmin'
 import rekapPenjualan from './pages/admin/rekapPenjualan'
 import Navbar from './components/Header/Navbar'
+import SingleProductDetails from './pages/Products/ProductDetails/SIngleProductDetails'
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
            <Route path='/admin' Component={homePageAdmin}  />
            <Route path='/admin/rekap' Component={rekapPenjualan}  />
            <Route path='nav' Component={Navbar} />
+           <Route path='product/:productId' Component={SingleProductDetails} />
         </Routes>
         </div>
       </div>

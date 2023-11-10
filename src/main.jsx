@@ -3,11 +3,18 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from "react-router-dom"
 import App from './App.jsx'
 import './index.css'
+import { Provider } from 'react-redux'
+import store from '../src/store.jsx'
+import { getAllProducts } from './Features/Products/ProductSlice.jsx'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const root = ReactDOM.createRoot(document.getElementById('root'));
+store.dispatch(getAllProducts());
+root.render(
   <React.StrictMode>
+    <Provider store={store}>
     <BrowserRouter>
     <App />
     </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
 )
