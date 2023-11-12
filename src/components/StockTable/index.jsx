@@ -94,6 +94,7 @@ const StockTable = ({ headers, stock, setStock }) => {
                     })
                 }
             </tbody>
+
         </Table>
     );
 };

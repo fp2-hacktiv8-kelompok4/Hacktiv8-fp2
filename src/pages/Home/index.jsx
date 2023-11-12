@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { Fragment, useEffect } from "react";
 import { InfinitySpin } from "react-loader-spinner";
 import { useDispatch, useSelector } from "react-redux";
 import { initiateProducts } from "../../redux/ProductsSlice";
@@ -27,7 +27,7 @@ const Home = () => {
     }, [firstRender, dispatch]);
 
     return (
-        <>
+        <Fragment>
             <Header />
             <SectionHeader title="Products" />
             {
@@ -36,7 +36,7 @@ const Home = () => {
                     :
                     <InfinitySpin color="black" />
             }
-        </>
+        </Fragment>
     );
 };
 

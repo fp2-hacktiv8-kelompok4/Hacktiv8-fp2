@@ -1,12 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { addCart, addCheckout } from "../../redux/ProductsSlice";
+import { addCart, addCheckout, removeItemFromCart } from "../../redux/ProductsSlice";
 import Swal from "sweetalert2";
 import Table from "react-bootstrap/Table";
 import styles from "./style.module.css";
 
-const CartTable = ({ headers }) => {
+
+const CartTable = ({ headers, data }) => {
     const dispatch = useDispatch();
 
     const navigate = useNavigate();
@@ -53,6 +54,10 @@ const CartTable = ({ headers }) => {
         });
     };
 
+    const handleRemoveItem = (item) => {
+        dispatch(removeItemFromCart(item.id));
+      };
+
     if (cart.length >= 1) {
         return (
             <Table className="m-4" style={{ width: "95%" }}>
@@ -94,13 +99,18 @@ const CartTable = ({ headers }) => {
                                     <td className="text-end">
                                         ${(data.cartQuantity * data.price).toFixed(2)}
                                     </td>
+                                    <td className="text-end justify-center">
+                                    <button className=" text-red-500" onClick={handleRemoveItem}>
+                                    Remove
+                                    </button>
+                                    </td>
                                 </tr>
                             )
                         })
                     }
 
                     <tr className="table-light">
-                        <td colSpan={4} className="text-center">
+                        <td colSpan={5} className="text-center">
                             <strong>TOTAL</strong>
                         </td>
                         <td className="text-end">
