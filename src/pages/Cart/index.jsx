@@ -9,7 +9,7 @@ const Cart = () => {
             <Header />
             <SectionHeader title="My Cart" />
             <CartTable
-                headers={["", "Products", "Price", "Quantity", "Total", "Action"]}
+                headers={["", "Products", "Price", "Quantity", "Total"]}
             />
         </div>
     );

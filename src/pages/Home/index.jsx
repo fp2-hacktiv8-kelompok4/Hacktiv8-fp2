@@ -6,6 +6,7 @@ import { getProducts } from "../../api";
 import Header from "../../components/Header";
 import ProductCards from "../../components/ProductCards";
 import SectionHeader from "../../components/SectionHeader";
+import Banner from "../../components/Banner";
 
 const Home = () => {
     const products = useSelector((state) => state.products.products);
@@ -29,6 +30,7 @@ const Home = () => {
     return (
         <Fragment>
             <Header />
+            <Banner />
             <SectionHeader title="Products" />
             {
                 products ?

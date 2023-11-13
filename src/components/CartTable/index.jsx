@@ -42,7 +42,7 @@ const CartTable = ({ headers, data }) => {
                         title: "Not enough stock!",
                         icon: "error"
                     });
-                } else {
+                }else {
                     dispatch(addCheckout());
                     navigate("/");
                     Swal.fire({
@@ -99,28 +99,29 @@ const CartTable = ({ headers, data }) => {
                                     <td className="text-end">
                                         ${(data.cartQuantity * data.price).toFixed(2)}
                                     </td>
-                                    <td className="text-end justify-center">
-                                    <button className=" text-red-500" onClick={handleRemoveItem}>
-                                    Remove
-                                    </button>
-                                    </td>
                                 </tr>
                             )
                         })
                     }
 
                     <tr className="table-light">
-                        <td colSpan={5} className="text-center">
+                        <td colSpan={4} className="text-center">
                             <strong>TOTAL</strong>
                         </td>
-                        <td className="text-end">
+                        <td  className="text-end">
                             <strong>${totalPrice.toFixed(2)}</strong>
                         </td>
                     </tr>
                     <tr>
-                        <td style={{ border: "none" }} colSpan={5} className="text-end">
-                            <Button variant="primary" onClick={handleCheckout}>Checkout</Button>
+                        <td style={{ border: "none" }} colSpan={5}  className="text-end">
+                            <button className=" bg-red-500 p-2 m-2 rounded-lg text-white" onClick={handleRemoveItem}>
+                            Remove All
+                            </button>
+                            <button className=" bg-primary p-2 m-2 rounded-lg text-white" onClick={handleCheckout}>
+                            Checkout
+                            </button>
                         </td>
+
                     </tr>
                 </tbody>
             </Table>
