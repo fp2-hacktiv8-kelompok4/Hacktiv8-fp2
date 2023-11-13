@@ -1,12 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { addCart, addCheckout } from "../../redux/ProductsSlice";
+import { addCart, addCheckout, removeItemFromCart } from "../../redux/ProductsSlice";
 import Swal from "sweetalert2";
 import Table from "react-bootstrap/Table";
 import styles from "./style.module.css";
 
-const CartTable = ({ headers }) => {
+
+const CartTable = ({ headers, data }) => {
     const dispatch = useDispatch();
 
     const navigate = useNavigate();
@@ -41,7 +42,7 @@ const CartTable = ({ headers }) => {
                         title: "Not enough stock!",
                         icon: "error"
                     });
-                } else {
+                }else {
                     dispatch(addCheckout());
                     navigate("/");
                     Swal.fire({
@@ -52,6 +53,10 @@ const CartTable = ({ headers }) => {
             }
         });
     };
+
+    const handleRemoveItem = (item) => {
+        dispatch(removeItemFromCart(item.id));
+      };
 
     if (cart.length >= 1) {
         return (
@@ -103,14 +108,20 @@ const CartTable = ({ headers }) => {
                         <td colSpan={4} className="text-center">
                             <strong>TOTAL</strong>
                         </td>
-                        <td className="text-end">
+                        <td  className="text-end">
                             <strong>${totalPrice.toFixed(2)}</strong>
                         </td>
                     </tr>
                     <tr>
-                        <td style={{ border: "none" }} colSpan={5} className="text-end">
-                            <Button variant="primary" onClick={handleCheckout}>Checkout</Button>
+                        <td style={{ border: "none" }} colSpan={5}  className="text-end">
+                            <button className=" bg-red-500 p-2 m-2 rounded-lg text-white" onClick={handleRemoveItem}>
+                            Remove All
+                            </button>
+                            <button className=" bg-primary p-2 m-2 rounded-lg text-white" onClick={handleCheckout}>
+                            Checkout
+                            </button>
                         </td>
+
                     </tr>
                 </tbody>
             </Table>
