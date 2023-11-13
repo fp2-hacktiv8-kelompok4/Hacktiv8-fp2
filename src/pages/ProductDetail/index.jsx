@@ -84,12 +84,6 @@ const ProductDetail = () => {
                         </h1>
                         <p className="text-sm">
                           {data.description}
-                          <a
-                            href="#"
-                            className="opacity-50 text-gray-900 hover:opacity-100 inline-block text-xs leading-none border-b border-gray-900"
-                          >
-                            MORE <i className="mdi mdi-arrow-right"></i>
-                          </a>
                         </p>
                         <p>{data.category}</p>
                       </div>
