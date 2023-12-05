@@ -53,7 +53,7 @@ const Login = () => {
                         icon: "success"
                     })
                 })
-                .catch(err => {
+                .catch(_err => {
                     Swal.fire({
                         title: "Login Error",
                         text: "Username/Password wrong or something wrong",
